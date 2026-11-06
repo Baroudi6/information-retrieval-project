@@ -101,5 +101,5 @@ Paper metadata and abstracts come from the [arXiv API](https://info.arxiv.org/he
 AI assistance used during development is documented in [`ai-logs/`](ai-logs/).
 
 ## Authors
-
-Course project by a team of two.
+- Omar Baroudi
+- Abdulrahman Al-Qurneh
