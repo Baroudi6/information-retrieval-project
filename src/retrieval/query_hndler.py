@@ -65,15 +65,22 @@ def build_vocab(docs):
 
 
 def correct(word, vocab):
-    """Replace a misspelled word with the most similar corpus word."""
-    if word in vocab or word in ABBREVIATIONS or len(word) <= 3:
+
+    if word in KNOWN_TYPOS:
+        return KNOWN_TYPOS[word]
+
+    if word in ABBREVIATIONS or len(word) <= 3:
         return word
+
+    if word in vocab:
+        return word
+
     match = get_close_matches(word, vocab, n=1, cutoff=0.8)
+
     return match[0] if match else word
 
-
 def process_query(query, vocab):
-    phrases = re.findall(r'"([^"]+)"', query)
+    phrases = [p for p in query.split('"')[1::2] if p.strip()]
     tokens = [correct(w, vocab) for w in words(query)]
     
     expansions = []
