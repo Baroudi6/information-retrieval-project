@@ -1,0 +1,32 @@
+{
+  "category": "cs.CR",
+  "target_per_topic": 100,
+  "date_start_utc": "202001010000",
+  "date_end_utc": "202611032359",
+  "topics": {
+    "Post-Quantum Cryptography": [
+      "post-quantum cryptography",
+      "lattice-based cryptography",
+      "quantum resistant",
+      "key encapsulation"
+    ],
+    "Privacy-Preserving Cryptography": [
+      "homomorphic encryption",
+      "zero knowledge proof",
+      "secure multiparty computation",
+      "private information retrieval"
+    ],
+    "Cryptographic Algorithms": [
+      "encryption",
+      "digital signature",
+      "hash function",
+      "cryptographic protocol"
+    ],
+    "Network and System Security": [
+      "network security",
+      "intrusion detection",
+      "authentication",
+      "access control"
+    ]
+  }
+}
