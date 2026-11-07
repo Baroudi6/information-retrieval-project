@@ -1,6 +1,9 @@
 import re
 from difflib import get_close_matches
 
+
+KNOWN_TYPOS = {}
+
 ABBREVIATIONS = {
     # post-quantum & public-key crypto
     "pqc": "post-quantum cryptography",
