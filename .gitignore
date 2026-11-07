@@ -3,3 +3,4 @@ dataset/texts/
 data/processed/embeddings.npy
 __pycache__/
 *.pyc
+.gradio/
