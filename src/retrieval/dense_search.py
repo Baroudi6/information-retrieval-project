@@ -36,7 +36,7 @@ class DenseSearch:
 
 
 if __name__ == "__main__":
-    docs = load_corpus("tests/sample_corpus.jsonl")
+    docs = load_corpus("data/processed/corpus.jsonl")
     engine = DenseSearch(docs, cache_path="tests/sample_embeddings.npy")
     for q in [
         "post-quantum signatures",

@@ -30,7 +30,7 @@ def show(label: str, results: list[dict], docs: list[dict], n: int = 3) -> None:
 
 
 if __name__ == "__main__":
-    docs = load_corpus("tests/sample_corpus.jsonl")
+    docs = load_corpus("data/processed/corpus.jsonl")
     bm25 = BM25Search(docs)
     dense = DenseSearch(docs, cache_path="tests/sample_embeddings.npy")
 
