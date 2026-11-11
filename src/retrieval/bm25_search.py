@@ -5,7 +5,7 @@ from rank_bm25 import BM25Okapi
 from src.retrieval.preprocess import tokenize
 
 
-def load_corpus(path: str) -> list[dict]:
+def load_corpus(path: str):
     """Read a JSONL corpus: one paper (a dict) per line."""
     with open(path, encoding="utf-8") as f:
         return [json.loads(line) for line in f if line.strip()]
@@ -22,15 +22,17 @@ class BM25Search:
         """Return the top-k papers as {"doc_index": position in corpus, "score": BM25 score}."""
         scores = self.index.get_scores(tokenize(query))
         ranked = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
-        return [
-            {"doc_index": i, "score": float(scores[i])}
-            for i in ranked[:k]
-            if scores[i] > 0  # skip papers that share no words with the query
-        ]
+        results = []                          
+        for i in ranked[:k]:                  
+            if scores[i] > 0:                
+                results.append(               
+                    {"doc_index": i, "score": float(scores[i])}
+        )
+        return results                        
 
 
 if __name__ == "__main__":
-    docs = load_corpus("tests/sample_corpus.jsonl")
+    docs = load_corpus("data/processed/corpus.jsonl")
     engine = BM25Search(docs)
     for q in ["post-quantum signatures", "homomorphic encryption", "intrusion detection"]:
         print(f"\nQuery: {q}")
